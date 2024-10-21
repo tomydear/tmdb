@@ -8,12 +8,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MainController {
 
-	@GetMapping("/")
-	public String main(@RequestParam String param) {
-		return new String();
+    @GetMapping({"/", "/{path:^(?!api).*}"})
+	public String main() {
+        return "forward:/index.html";
 	}
 	
-	public String main() {
-		return "index";
-	}
 }
